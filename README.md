@@ -20,4 +20,4 @@ To read the output of the linear potentiometer we use the ADS1115 ADC. It has 16
 To read the ADC outputs we use a Pi-Pico running micropython. This is meant to be interfaceable with our own brand of ModBus network that we developped for instrumented sites (see [here](https://github.com/ivancornut/ecophys-modbus)).
 
 ## Calibration
-For calibration we use an aluminium rod with a known thermal expansion coefficient in a heating oven. By heating the the whole setup we are able to calculate the deviation of the sensor due to thermal effects and cauculate a linear correction to apply in the field. 
+For calibration we use an aluminium rod with a known thermal expansion coefficient in a heating oven. By heating the whole setup we are able to calculate the deviation of the sensor due to thermal effects and calculate a linear correction to apply in the field. The code 
