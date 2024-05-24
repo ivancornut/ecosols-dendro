@@ -7,7 +7,10 @@ There are already designs for point dendrometers on the market. Unfortunately mo
 
 ## Hardware
 ### Mechanics
-The build is based on a 3D printed holder and carbon-fiber rods. The 3D printed holder gives us the ease of fabrication, ease of prototyping and low-cost that makes it possible to build a large number of said dendrometers for a reasonnable price. The carbon-fiber rods give us a good temperature response of the dendrometer due to the low expansion coefficient of carbon-fiber rods. 
+The build is based on a 3D printed holder and carbon-fiber rods. The 3D printed holder gives us the ease of fabrication, ease of prototyping and low-cost that makes it possible to build a large number of said dendrometers for a reasonnable price. The carbon-fiber rods give us a good temperature response of the dendrometer due to their low expansion coefficient.
+
+The 3D printable designs are respectively [Tree attachement](Tree attach.stl) and the [LVDT holder](). 
+
 
 ### Electronics
 #### Linear potentiometer
