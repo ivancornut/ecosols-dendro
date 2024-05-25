@@ -23,6 +23,14 @@ To read the output of the linear potentiometer we use the ADS1115 ADC. It has 16
 To read the ADC outputs we use a Pi-Pico running micropython. This is meant to be interfaceable with our own brand of ModBus network that we developped for instrumented sites (see [here](https://github.com/ivancornut/ecophys-modbus)).
 
 ## Calibration
-For calibration we use an aluminium rod with a known thermal expansion coefficient in a heating oven. By heating the whole setup we are able to calculate the deviation of the sensor due to thermal effects and calculate a linear correction to apply in the field. The code can be found [here](/Calibration_temp/calibration_temperature.ipynb). The graph below is the results when using our first prototype of the device.
+### Calibration of the LVDT
+To calibrate the LVDT sensor we use a caliper and a small code that reads the outputs of the ADC connected to the LVDT. The procedures, codes and example datasets to do this operation cab be found in the [/Calibration](/Calibration) folder. 
+The picture below shows an example of caliper values versus ADC outputs:
 
-![calibration](/Calibration_temp/calib.png). 
+![calibration](/Calibration/calib.png). 
+
+### Temperature response of the dendrometer
+For calibration we use an aluminium rod with a known thermal expansion coefficient in a heating oven. By heating the whole setup we are able to calculate the deviation of the sensor due to thermal effects and calculate a linear correction to apply in the field. The code can be found [here](/Calibration_temp/calibration_temperature.ipynb). 
+The graph below is the results when using our first prototype of the device:
+
+![temperature calibration](/Calibration_temp/calib.png). 
