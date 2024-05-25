@@ -1,5 +1,6 @@
 # Open Point-dendrometer
 A point dendrometer for small trunks and branches of tropical trees
+![dendrometer](dendro.jpg)
 
 ## Objectives
 Build a high precision point dendrometer to daily variations in water status and seasonnal growth of trees. 
