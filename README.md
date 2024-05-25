@@ -12,7 +12,7 @@ There are already designs for point dendrometers on the market. Unfortunately mo
 
 The build is based on a 3D printed holder and carbon-fiber rods. The 3D printed holder gives us the ease of fabrication, ease of prototyping and low-cost that makes it possible to build a large number of said dendrometers for a reasonnable price. The carbon-fiber rods give us a good temperature response of the dendrometer due to their low expansion coefficient.
 
-The 3D printable designs are respectively the [tree attachement](/Tree%20attach.stl) and the [LVDT holder](LVDT_holder_part.stl). 
+The 3D printable designs are respectively the [tree attachement](/Tree%20attach.stl) and the [LVDT holder](LVDT_holder_part.stl). They were meant to be printed in glass fiber PETG filament at 0.25mm layer height with a 0.6mm nozzle. The filament is the [Nanovia GF-UV PETG](https://nanovia.tech/en/ref/nanovia-petg-gf-uv/). The designs here were printed using a Prusa Mk4 and aby drying the filament at 60°C for 12h.
 
 ### Electronics
 #### Linear potentiometer
