@@ -6,11 +6,11 @@ module holder(width_ziptie,height_holder,diameter_tree,width_center){
             translate([0,-(diameter_tree/2-(height_holder)),0]){
                 difference(){
                     union(){
-                        translate([0,0,width_ziptie]){
-                            cyl(h = width_ziptie, d = diameter_tree+10, $fn = 500);
+                        translate([0,0,2.5/2+width_ziptie/2]){
+                            cyl(h = 2.5, d = diameter_tree+5, $fn = 500);
                         }
-                        translate([0,0,-width_ziptie]){
-                            cyl(h = width_ziptie, d = diameter_tree+10, $fn = 500);
+                        translate([0,0,-(2.5/2+width_ziptie/2)]){
+                            cyl(h = 2.5, d = diameter_tree+5, $fn = 500);
                         }
                         cyl(h = width_ziptie, d = diameter_tree, $fn = 500);
                     }
@@ -31,4 +31,4 @@ module holder(width_ziptie,height_holder,diameter_tree,width_center){
 }
 
 
-//holder(5,10,50*2,30);
+//holder(10,10,50*2,30);

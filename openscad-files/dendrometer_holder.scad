@@ -16,10 +16,10 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
                 if(nb_arms>2) dendro_arm(offset_arm = width/2,rot_angle = 270, height = height, l = arm_length);
             }
             translate([0,-(width-(5+10)/2),-height/2]){
-                holder(5,height,arm_length*2,width);
+                holder(11.5,height,arm_length*2,width);
                 }
             translate([0,+(width-(5+10)/2),-height/2]){
-                holder(5,height,arm_length*2,width);
+                holder(11.5,height,arm_length*2,width);
                 }
         }
  }   
