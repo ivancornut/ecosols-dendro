@@ -9,8 +9,8 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
     difference(){
         union(){
             cuboid([width,width,height], chamfer = 7, edges = "Z");
-            translate([-1,-3,height/2+22/2]){
-                cuboid([17,16,22], chamfer = 1, edges = "Z");
+            translate([-2,-3,height/2+22/2]){
+                cuboid([18,19,25], chamfer = 1, edges = "Z");
             }
             if(nb_arms>0){
                 dendro_arm(offset_arm = width/2,rot_angle = 0, height = height, l = arm_length);
@@ -22,7 +22,7 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
         lvdt_BI404(rotation = 90, offset_to_center = -height/2+3, xscaling = 1, zscaling = 1.1);
         translate([-1,-4.32,24.13+1.40+0.25-height/2+3]){
             rotate([0,90,0]){
-                cyl(h = 20, d = 2, $fn = 100);
+                cyl(h = 23, d = 2, $fn = 100);
             }
         }   
     }
@@ -35,4 +35,4 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
      //   }
     //}
 }
-dendrometer_lvdt(0,30,10,15);
+dendrometer_lvdt(2,30,10,50);

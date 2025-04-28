@@ -4,7 +4,7 @@ module lvdt_BI404(rotation,offset_to_center,xscaling, zscaling){
     color("gray")
     rotate([0,-rotation,0]){
         translate([26.92/2+5,(12.7-7.88)/2,(11.56-8.51+1)/2+8.51-3.56]){
-            cuboid([20+10, 4,11.56-8.51 +1]);
+            cuboid([20+10, 5,11.56-8.51 +1]);
         }
         zscale(zscaling)
         translate([offset_to_center,-7.88-xscaling/2,-3.56]){
