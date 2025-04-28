@@ -1,0 +1,34 @@
+include <BOSL2/std.scad>
+
+module holder(width_ziptie,height_holder,diameter_tree,width_center){
+    difference(){
+        rotate([90,0,0]){
+            translate([0,-(diameter_tree/2-(height_holder)),0]){
+                difference(){
+                    union(){
+                        translate([0,0,width_ziptie]){
+                            cyl(h = width_ziptie, d = diameter_tree+10, $fn = 500);
+                        }
+                        translate([0,0,-width_ziptie]){
+                            cyl(h = width_ziptie, d = diameter_tree+10, $fn = 500);
+                        }
+                        cyl(h = width_ziptie, d = diameter_tree, $fn = 500);
+                    }
+                    // to remove from the circle
+                    translate([0,-(height_holder+5),0]){
+                        cuboid([diameter_tree+10,diameter_tree+10,10*4]);
+                    }
+                }
+            }
+        }
+        translate([50/2+(width_center/2+2),0,0]){
+            cuboid([50,50,100]);
+        }
+        translate([-(50/2+(width_center/2+2)),0,0]){
+            cuboid([50,50,100]);
+        }
+    }
+}
+
+
+//holder(5,10,50*2,30);
