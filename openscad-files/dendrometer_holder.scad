@@ -33,4 +33,4 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
         }
     }
 }
-//dendrometer_holder(2,30,10,50);
+dendrometer_holder(2,30,10,50);

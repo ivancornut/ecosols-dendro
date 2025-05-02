@@ -35,4 +35,4 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
      //   }
     //}
 }
-//dendrometer_lvdt(0,30,10,50);
+dendrometer_lvdt(2,30,10,50);
