@@ -20,7 +20,13 @@ module dendro_arm(offset_arm, rot_angle,height,l){
     rotate([0,0,rot_angle]){
         translate([length_arm/2+offset_arm,0,0]){
             union(){
-                cuboid([length_arm,width_arm,height_arm], chamfer = 2, edges = "X",$fn = 100);
+                difference(){
+                    // the arm of the holder
+                    cuboid([length_arm,width_arm,height_arm], chamfer = 2, edges = "X",$fn = 100);
+                    rotate([0,90,0]){
+                        cylinder(d = 6, h = length_arm-10,center = true,$fn = 100);
+                    }
+                }
                 translate([length_arm/2+tube_holder_diam/2,0,0]){
                     difference(){
                         union(){
@@ -53,14 +59,14 @@ module dendro_arm(offset_arm, rot_angle,height,l){
                         }                  
                     }
                 }
-                attachment = 10;
+                attachment = 8;
                 length_ellipse = length_arm + attachment;
-                width_ellipse = width_arm-12;
-                translate([-2,-(width_ellipse)/2,0]){
+                width_ellipse = width_arm-13;
+                translate([-2,-(width_ellipse)/2,height_arm/2]){
                     rotate([-90,0,0]){
                         linear_extrude(width_ellipse){
                             difference(){
-                                ellipse(d=[length_ellipse,30],$fn=100);
+                                ellipse(d=[length_ellipse,10],$fn=100);
                                 translate([-length_ellipse/2-1,0,0]){
                                     square([length_ellipse+3,15]);
                                 }
@@ -74,5 +80,21 @@ module dendro_arm(offset_arm, rot_angle,height,l){
 
 }
 
-//dendro_arm(0,0,10,20);
-
+//dendro_arm(0,0,10,50);
+//width_arm = 16;
+//length_arm = 50;
+//attachment = 10;
+//length_ellipse = length_arm + attachment;
+//width_ellipse = width_arm-14;
+//translate([-2,-(width_ellipse)/2,10/2]){
+//   rotate([-90,0,0]){
+//   linear_extrude(width_ellipse){
+//        difference(){
+//            ellipse(d=[length_ellipse,10],$fn=100);
+//                translate([-length_ellipse/2-1,0,0]){
+//                    square([length_ellipse+3,20]);
+//                }
+//        }
+//    }
+//    }
+//}

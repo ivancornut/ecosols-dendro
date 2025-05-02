@@ -7,6 +7,7 @@ include <holder.scad>
 //lvdt_BI404(rotation = 90, offset_to_center = 2);
 module dendrometer_holder(nb_arms,width, height, arm_length){
     color("white")
+    difference(){
         union(){
             cuboid([width,width,height], chamfer = 0, edges = "Z");
             if(nb_arms>0){
@@ -20,7 +21,16 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
                 }
             translate([0,+(width-(5+10)/2),-height/2]){
                 holder(11.5,height,arm_length*2,width);
-                }
+            }
         }
- }   
+        rotate([90,0,0]){
+            translate([-6,0,0]){
+                cylinder(d = 7,h=100,center = true,$fn = 100);
+            }
+            translate([6,0,0]){
+                cylinder(d = 7,h=100,center = true,$fn = 100);
+            }
+        }
+    }
+}
 //dendrometer_holder(2,30,10,50);
