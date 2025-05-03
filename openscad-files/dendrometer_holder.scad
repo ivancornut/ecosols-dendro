@@ -3,12 +3,17 @@ include <arm_dendrometer.scad>
 include <lvdt404.scad>
 include <holder.scad>
 
+nb_arms_dendro = 2;
+width_holder = 30; // should not be changed usually
+tree_trunk_width = 100; // adapt to your tree
+holder_arms_length = tree_trunk_width/2;
+height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
-//lvdt_BI404(rotation = 90, offset_to_center = 2);
 module dendrometer_holder(nb_arms,width, height, arm_length){
     color("white")
     difference(){
         union(){
+        // the main body of the structure
             cuboid([width,width,height], chamfer = 0, edges = "Z");
             if(nb_arms>0){
                 dendro_arm(offset_arm = width/2,rot_angle = 0, height = height, l = arm_length);
@@ -16,6 +21,7 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
                 dendro_arm(offset_arm = width/2,rot_angle = 180, height = height, l = arm_length);
                 if(nb_arms>2) dendro_arm(offset_arm = width/2,rot_angle = 270, height = height, l = arm_length);
             }
+            // The two holders for the flexible zip-ties
             translate([0,-(width-(5+10)/2),-height/2]){
                 holder(11.5,height,arm_length*2,width);
                 }
@@ -23,6 +29,7 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
                 holder(11.5,height,arm_length*2,width);
             }
         }
+        // Following are the holes that make the dendrometer consume less plastic and more rigid
         rotate([90,0,0]){
             translate([-6,0,0]){
                 cylinder(d = 7,h=100,center = true,$fn = 100);
@@ -33,4 +40,4 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
         }
     }
 }
-dendrometer_holder(2,30,10,50);
+dendrometer_holder(nb_arms_dendro,width_holder,height_arms_and_holder,holder_arms_length);

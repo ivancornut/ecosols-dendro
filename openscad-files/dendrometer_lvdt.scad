@@ -2,6 +2,11 @@ include <BOSL2/std.scad>
 include <arm_dendrometer.scad>
 include <lvdt404.scad>
 
+nb_arms_dendro = 2;
+width_holder = 30; // should not be changed usually
+tree_trunk_width = 100; // adapt to your tree
+holder_arms_length = tree_trunk_width/2;
+height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
 //lvdt_BI404(rotation = 90, offset_to_center = 2);
 module dendrometer_lvdt(nb_arms,width, height, arm_length){
@@ -19,7 +24,7 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
                 if(nb_arms>2) dendro_arm(offset_arm = width/2,rot_angle = 270, height = height, l = arm_length);
             }
         }
-        lvdt_BI404(rotation = 90, offset_to_center = -height/2+3, xscaling = 1, zscaling = 1.1);
+        lvdt_BI404(rotation = 90, offset_to_center = -height/2+3, xscaling = 1, zscaling = 1.1,cylinder_scaling = 1.05);
         translate([-1,-4.32,24.13+1.40+0.25-height/2+3]){
             rotate([0,90,0]){
                 cyl(h = 23, d = 2, $fn = 100);
@@ -35,4 +40,4 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
      //   }
     //}
 }
-dendrometer_lvdt(2,30,10,50);
+dendrometer_lvdt(nb_arms_dendro,width_holder,height_arms_and_holder,holder_arms_length);
