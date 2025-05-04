@@ -5,7 +5,7 @@ include <water_evac.scad>
 
 nb_arms_dendro = 2;
 width_holder = 30; // should not be changed usually
-tree_trunk_width = 100; // adapt to your tree
+tree_trunk_width = 50; // adapt to your tree
 holder_arms_length = tree_trunk_width/2;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
