@@ -3,7 +3,7 @@ include <BOSL2/std.scad>
 
 module dendro_arm(offset_arm, rot_angle,height,l){
     length_arm = l;
-    width_arm = 16 ;
+    width_arm = 15 ;
     height_arm = height ;
 
     c_tube_diam = 8 ;
@@ -22,7 +22,7 @@ module dendro_arm(offset_arm, rot_angle,height,l){
             union(){
                 difference(){
                     // the arm of the holder
-                    cuboid([length_arm,width_arm,height_arm], chamfer = 2, edges = "X",$fn = 100);
+                    cuboid([length_arm,width_arm,height_arm], chamfer = 2, edges = [TOP+FRONT,TOP+BACK],$fn = 100);
                     rotate([0,90,0]){
                         cylinder(d = 6, h = length_arm-10,center = true,$fn = 100);
                     }
@@ -31,12 +31,13 @@ module dendro_arm(offset_arm, rot_angle,height,l){
                     difference(){
                         union(){
                             translate([-tube_holder_diam/4,0,0]){
-                                cube([tube_holder_diam/2,tube_holder_diam,height_arm],center = true);
+                                cuboid([tube_holder_diam/2,tube_holder_diam,height_arm]);
                              }
                              cylinder(d = tube_holder_diam, h = height_arm, center = true,$fn=100);
                              translate([tube_holder_diam/2,0,0]){
                                 // the cube to tighten the carbon fiber tube
-                                cube([tube_holder_width+tube_tight_l,tube_tight_w,height_arm], center = true);
+                                cuboid([tube_holder_width+tube_tight_l,tube_tight_w,height_arm],
+                                 rounding=1,edges=[RIGHT+FRONT, RIGHT+BACK],$fn=100);
                              } 
                         }
                         // the hole for the tube to fit in

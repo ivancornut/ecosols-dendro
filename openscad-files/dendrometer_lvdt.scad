@@ -5,7 +5,7 @@ include <water_evac.scad>
 
 nb_arms_dendro = 2;
 width_holder = 30; // should not be changed usually
-tree_trunk_width = 50; // adapt to your tree
+tree_trunk_width = 100; // adapt to your tree
 holder_arms_length = tree_trunk_width/2;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
@@ -22,11 +22,18 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
     difference(){
         union(){
             // The centerpiece that holds the arms
-            cuboid([width,width,height], chamfer = 7, edges = "Z");
+            if(nb_arms>2){
+                cuboid([width,width,height], chamfer = 7, edges = "Z");
+            }
+            else{
+                translate([0,-3.5,0]){
+                    cuboid([width,width-8,height], chamfer = 2, edges = [TOP+BACK,RIGHT+FRONT,LEFT+FRONT]);
+                }
+            }
             
             // the part that goes around the LVDT (the LVDT is cut out from this shape)
             translate([-2,-3,height/2+22/2]){
-                cuboid([18,19,25], chamfer = 1, edges = "Z");
+                cuboid([18,19,25], rounding = 2, edges ="Z",$fn=100); //[RIGHT+FRONT,LEFT+FRONT]);
             }
             // arms
             if(nb_arms>0){
