@@ -12,7 +12,7 @@ height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good comp
 module dendrometer_holder(nb_arms,width, height, arm_length){
     ziptie_width = 11.5;
     color("white")
-    difference(){
+    //difference(){
         union(){
         // the main body of the structure
             cuboid([width,width-5,height], chamfer = 2, edges = [TOP+FRONT,TOP+BACK]);
@@ -33,14 +33,14 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
             }
         }
         // Following are the holes that make the dendrometer consume less plastic and more rigid
-        rotate([90,0,0]){
-            translate([-6,0,0]){
-                cylinder(d = 7,h=0,center = true,$fn = 100);
-            }
-            translate([6,0,0]){
-                cylinder(d = 7,h=0,center = true,$fn = 100);
-            }
-        }
-    }
+        //rotate([90,0,0]){
+        //    translate([-6,0,0]){
+        //        cylinder(d = 7,h=,center = true,$fn = 100);
+        //    }
+        //    translate([6,0,0]){
+        //        cylinder(d = 7,h=0,center = true,$fn = 100);
+        //    }
+        //}
+    //}
 }
 dendrometer_holder(nb_arms_dendro,width_holder,height_arms_and_holder,holder_arms_length);
