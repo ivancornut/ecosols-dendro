@@ -23,10 +23,10 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
                 if(nb_arms>2) dendro_arm(offset_arm = width/2,rot_angle = 270, height = height, l = arm_length);
             }
             // The two holders for the flexible zip-ties
-            translate([0,-((width-5)+ziptie_width)/2,-height/2]){
+            translate([0,-((width-5)+ziptie_width)/2+0.1,-height/2]){
                 holder(ziptie_width,height,arm_length*2,width);
                 }
-            translate([0,+((width-5)+ziptie_width)/2,-height/2]){
+            translate([0,+((width-5)+ziptie_width)/2-0.1,-height/2]){
                 rotate([0,0,180]){
                     holder(ziptie_width,height,arm_length*2,width);
                 }
