@@ -43,7 +43,7 @@ module dendro_arm(offset_arm, rot_angle,height,l){
                         }
                         // the hole for the tube to fit in
                         cyl(d = c_tube_diam+tube_slack, h = height_arm+0.1,chamfer = -1,$fn=100);
-                        cuts_flex(4,45,-45,c_tube_diam,2,height_arm+0.1,0.8);
+                        cuts_flex(4,55,-55,c_tube_diam,2.5,height_arm+0.1,0.8);
                         translate([tube_holder_diam/2,0,0]){
                             // hole between the two parts that tighten
                             cube([tube_holder_width+tube_tight_l+0.1,2.5,height_arm+0.1], center = true);

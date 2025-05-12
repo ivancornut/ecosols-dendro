@@ -5,11 +5,11 @@ include <holder.scad>
 
 nb_arms_dendro = 2;
 width_holder = 22.5; // should not be changed usually
-tree_trunk_width = 100; // adapt to your tree
-holder_arms_length = tree_trunk_width/2 + (30-width_holder)/2;
+tree_trunk_width = 50; // adapt to your tree
+holder_arms_length = tree_trunk_width/2 + (30-width_holder)/2 - 20;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
-module dendrometer_holder(nb_arms,width, height, arm_length){
+module dendrometer_holder(nb_arms,width, height, arm_length,tree_width){
     ziptie_width = 11.5;
     color("white")
     //difference(){
@@ -24,11 +24,11 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
             }
             // The two holders for the flexible zip-ties
             translate([0,-((width-5)+ziptie_width)/2+0.1,-height/2]){
-                holder(ziptie_width,height,arm_length*2,width);
+                holder(ziptie_width,height,tree_width,width);
                 }
             translate([0,+((width-5)+ziptie_width)/2-0.1,-height/2]){
                 rotate([0,0,180]){
-                    holder(ziptie_width,height,arm_length*2,width);
+                    holder(ziptie_width,height,tree_width,width);
                 }
             }
         }
@@ -43,4 +43,4 @@ module dendrometer_holder(nb_arms,width, height, arm_length){
         //}
     //}
 }
-dendrometer_holder(nb_arms_dendro,width_holder,height_arms_and_holder,holder_arms_length);
+dendrometer_holder(nb_arms_dendro,width_holder,height_arms_and_holder,holder_arms_length,tree_trunk_width);
