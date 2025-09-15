@@ -5,25 +5,25 @@ include <water_evac.scad>
 
 nb_arms_dendro = 2;
 width_holder = 30; // should not be changed usually
-tree_trunk_width = 50; // adapt to your tree
-holder_arms_length = tree_trunk_width/2 - (width_holder-20);
+tree_trunk_width = 130; // adapt to your tree
+holder_arms_length = tree_trunk_width/2 - (width_holder-30)/2;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
 //lvdt_BI404(rotation = 90, offset_to_center = 2);
 module dendrometer_lvdt(nb_arms,width, height, arm_length){
     
     diam_screw = 2;
-    depth_screw_head = 3;
+    depth_screw_head = 4;
     size_screw_head = 4;
     size_bolt = 4.75;
-    depth_bolt = 1;
+    depth_bolt = 2;
     
     color("white")
     difference(){
         union(){
             // The centerpiece that holds the arms
             if(nb_arms>2){
-                cuboid([width,width,height], chamfer = 7, edges = "Z");
+                cuboid([width,width,height], rounding = 7, edges = "Z");
             }
             else{
                 translate([0,-3.5,0]){
@@ -44,7 +44,7 @@ module dendrometer_lvdt(nb_arms,width, height, arm_length){
             }
         }
         // we remove the LVDT cutout
-        lvdt_BI404(rotation = 90, offset_to_center = -height/2+3, xscaling = 1, zscaling = 1.1,cylinder_scaling = 1.05);
+        lvdt_BI404(rotation = 90, offset_to_center = -height/2+3, xscaling = 1, zscaling = 1.1,cylinder_scaling = 1.1);
         
         // holes for the screw that holds the LVDT
         translate([-1,-4.32,24.13+1.40+0.25-height/2+3]){

@@ -5,8 +5,8 @@ include <holder.scad>
 
 nb_arms_dendro = 2;
 width_holder = 22.5; // should not be changed usually
-tree_trunk_width = 50; // adapt to your tree
-holder_arms_length = tree_trunk_width/2 + (30-width_holder)/2 - 20;
+tree_trunk_width = 130; // adapt to your tree
+holder_arms_length = tree_trunk_width/2 - (width_holder-30)/2 ;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 
 module dendrometer_holder(nb_arms,width, height, arm_length,tree_width){
