@@ -5,7 +5,7 @@ include <holder.scad>
 
 nb_arms_dendro = 2;
 width_holder = 22.5; // should not be changed usually
-tree_trunk_width = 130; // adapt to your tree
+tree_trunk_width = 120; // adapt to your tree
 holder_arms_length = tree_trunk_width/2 - (width_holder-30)/2 ;
 height_arms_and_holder = 10; // this will affect the rigidity, 10 is a good compromise
 

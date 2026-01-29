@@ -66,12 +66,12 @@ module dendro_arm(offset_arm, rot_angle,height,l){
                 }
                 attachment = 6;
                 length_ellipse = length_arm + attachment;
-                width_ellipse = width_arm-13;
+                width_ellipse = width_arm-12;
                 translate([-2,-(width_ellipse)/2,height_arm/2]){
                     rotate([-90,0,0]){
                         linear_extrude(width_ellipse){
                             difference(){
-                                ellipse(d=[length_ellipse,10],$fn=100);
+                                ellipse(d=[length_ellipse,15],$fn=100);
                                 translate([-length_ellipse/2-1,0,0]){
                                     square([length_ellipse+3,15]);
                                 }
